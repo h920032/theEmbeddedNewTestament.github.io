@@ -335,6 +335,10 @@ Explore → [Advanced Hardware](#advanced-hardware) → [Embedded Security](#emb
 - **[C Programming Interview](./Interview_Preparation/Foundation_Level/C_Programming_Interview.md)** - Memory management, pointers, volatile/const qualifiers
 - **[Basic Hardware Interview](./Interview_Preparation/Foundation_Level/Basic_Hardware_Interview.md)** - GPIO, interrupts, timers, communication protocols
 - **[Problem-Solving Approach](./Interview_Preparation/Foundation_Level/Problem_Solving_Approach.md)** - Systematic problem-solving strategies and common patterns
+- **[RTOS Interview](./Interview_Preparation/Foundation_Level/RTOS_Interview.md)** - RTOS fundamentals, task management, synchronization
+- **[Data Structures & Algorithms Interview](./Interview_Preparation/Foundation_Level/Data_Structures_Algorithms_Interview.md)** - Arrays, linked lists, optimization techniques
+- **[Bus Protocols Interview](./Interview_Preparation/Foundation_Level/Bus_Protocols_Interview.md)** - I2C, SPI, UART implementation and error handling
+- **[Embedded Security Interview](./Interview_Preparation/Foundation_Level/Embedded_Security_Interview.md)** - Security fundamentals, cryptography, secure boot
 
 **Intermediate Level Interview Prep**
 - **[Real-Time Systems Interview](./Interview_Preparation/Intermediate_Level/Real_Time_Systems_Interview.md)** - RTOS concepts, task scheduling, interrupt handling
@@ -355,6 +359,61 @@ Explore → [Advanced Hardware](#advanced-hardware) → [Embedded Security](#emb
 - **[Technical Interview Guide](./Interview_Preparation/Interview_Strategy/Technical_Interview_Guide.md)** - Interview formats, preparation strategies, common pitfalls
 - **[Problem-Solving Framework](./Interview_Preparation/Interview_Strategy/Problem_Solving_Framework.md)** - Systematic approach to technical problems
 - **[Mock Interviews](./Interview_Preparation/Interview_Strategy/Mock_Interviews.md)** - Practice scenarios and self-assessment
+
+#### **📚 Interview Preparation Strategy**
+
+**Learning Paths by Experience Level**
+
+**Junior Embedded Engineer Path**
+```
+Foundation Level → Intermediate Level → Interview Strategy
+     ↓                    ↓                    ↓
+C Programming    Real-Time Systems    Technical Prep
+Basic Hardware   Communication       Problem Solving
+Problem Solving  System Integration  Mock Interviews
+```
+
+**Senior Embedded Engineer Path**
+```
+Intermediate Level → Advanced Level → Specialized Domains → Interview Strategy
+       ↓                ↓                ↓                    ↓
+Real-Time Systems  Performance      Industry Protocols    Advanced Prep
+Communication      Advanced HW      Operating Systems     Leadership
+System Integration Security         IoT & Wireless       System Design
+```
+
+**Study Strategy**
+1. **Review Technical Content**: Use our learning modules for deep understanding
+2. **Practice Interview Questions**: Work through questions in each topic
+3. **Solve Practice Problems**: Apply concepts to hands-on problems
+4. **Self-Assess**: Use checklists to identify knowledge gaps
+5. **Mock Interviews**: Practice with sample scenarios
+
+**Success Tips**
+- **Before Interview**: Review fundamentals, practice coding, research company
+- **During Interview**: Think aloud, ask clarifying questions, start simple, be honest
+- **After Interview**: Reflect on areas for improvement, follow up, learn from experience
+
+#### **✅ Interview Preparation Checklist**
+
+**Technical Knowledge** ✅
+- [ ] **C Programming**: Pointers, memory management, embedded C
+- [ ] **Hardware Fundamentals**: GPIO, interrupts, timers, communication
+- [ ] **Real-Time Systems**: RTOS concepts, task scheduling, timing
+- [ ] **System Design**: Architecture, integration, optimization
+- [ ] **Industry Knowledge**: Protocols, standards, best practices
+
+**Problem-Solving Skills** ✅
+- [ ] **Algorithmic Thinking**: Efficient solutions, optimization
+- [ ] **Debugging**: Systematic problem identification and resolution
+- [ ] **System Analysis**: Understanding complex embedded systems
+- [ ] **Trade-off Analysis**: Performance vs. power vs. cost
+
+**Communication & Soft Skills** ✅
+- [ ] **Technical Communication**: Clear explanation of complex concepts
+- [ ] **Project Discussion**: Past work, challenges, solutions
+- [ ] **Team Collaboration**: Working with cross-functional teams
+- [ ] **Leadership**: Technical leadership and mentorship
 
 #### **Quick Reference: Common Interview Topics**
 
@@ -439,6 +498,12 @@ Explore → [Advanced Hardware](#advanced-hardware) → [Embedded Security](#emb
 ### **Interview Resources**
 - [Embedded Software Interview Archive](https://docs.google.com/document/d/1uW030FMfBxKLxXz-eIwyzlMJdERN5DMEwtUnJMYsF-g/edit)
 - [Awesome Embedded Interview](https://docs.google.com/document/d/18HMyd-lFu1hWiixFLS2Pc7-SgyzDDqitzXbfAnUVeBE/mobilebasic)
+
+### **Interview Preparation Books**
+- "Cracking the Coding Interview" by Gayle Laakmann McDowell
+- "System Design Interview" by Alex Xu
+- "Behavioral Interview Questions" by Mark Murphy
+- "Technical Interview Questions" by John Mongan
 
 ---
 
