@@ -693,6 +693,137 @@ void heap_example(void) {
 }
 ```
 
+#### **Practical Scenario: Stack vs Heap Comparison**
+
+```c
+/*
+ * Stack vs Heap: When to use each
+ * 
+ * STACK: small, fixed-size, short-lived data
+ * HEAP:  large, variable-size, or data that outlives the function
+ */
+
+// ✅ Stack: small fixed buffer for local processing
+void process_sensor(void) {
+    uint8_t raw[8];           // 8 bytes on stack - fast, automatic
+    read_sensor(raw, 8);
+    uint16_t value = (raw[0] << 8) | raw[1];
+    send_value(value);
+}   // raw automatically freed here
+
+// ✅ Heap: large buffer or data returned to caller
+uint8_t* allocate_frame_buffer(size_t width, size_t height) {
+    size_t size = width * height * 3;  // RGB
+    uint8_t* fb = malloc(size);
+    if (fb) memset(fb, 0, size);
+    return fb;  // caller must free
+}
+```
+
+#### **Common Pitfalls with Code Examples**
+
+**Pitfall 1: Returning Stack Address (Dangling Pointer)**
+```c
+// ❌ BUG: returning address of stack memory
+uint8_t* bad_get_buffer(void) {
+    uint8_t tmp[64];
+    fill_buffer(tmp);
+    return tmp;  // UNDEFINED BEHAVIOR - tmp is gone after return
+}
+
+// ✅ FIX: use caller-provided buffer or heap
+void good_get_buffer(uint8_t* out, size_t len) {
+    fill_buffer(out);  // caller owns the memory
+}
+
+uint8_t* good_get_buffer_heap(size_t len) {
+    uint8_t* buf = malloc(len);
+    if (buf) fill_buffer(buf);
+    return buf;  // caller must free
+}
+```
+
+**Pitfall 2: Memory Leak in Error Path**
+```c
+// ❌ BUG: memory leak if second allocation fails
+int bad_init(void) {
+    ctx->buf1 = malloc(1024);
+    if (!ctx->buf1) return -1;
+    
+    ctx->buf2 = malloc(2048);
+    if (!ctx->buf2) return -1;  // LEAK: buf1 not freed!
+    
+    return 0;
+}
+
+// ✅ FIX: clean up on error
+int good_init(void) {
+    ctx->buf1 = malloc(1024);
+    if (!ctx->buf1) return -1;
+    
+    ctx->buf2 = malloc(2048);
+    if (!ctx->buf2) {
+        free(ctx->buf1);        // clean up first allocation
+        ctx->buf1 = NULL;
+        return -1;
+    }
+    return 0;
+}
+```
+
+**Pitfall 3: Use-After-Free**
+```c
+// ❌ BUG: accessing freed memory
+void bad_cleanup(msg_t* msg) {
+    free(msg->payload);
+    log("Freed %zu bytes", msg->payload_len);  // OK so far
+    
+    // ... later in code ...
+    if (msg->payload[0] == 0xAA) { }  // UAF! payload is freed
+}
+
+// ✅ FIX: NULL after free, check before use
+void good_cleanup(msg_t* msg) {
+    free(msg->payload);
+    msg->payload = NULL;    // prevent accidental reuse
+    msg->payload_len = 0;
+}
+```
+
+**Pitfall 4: Double Free**
+```c
+// ❌ BUG: freeing the same memory twice
+void bad_reset(void) {
+    free(global_buf);
+    // ... other code ...
+    free(global_buf);  // DOUBLE FREE - undefined behavior
+}
+
+// ✅ FIX: NULL after free
+void good_reset(void) {
+    free(global_buf);
+    global_buf = NULL;
+    // ... other code ...
+    free(global_buf);  // safe: free(NULL) is a no-op
+}
+```
+
+**Pitfall 5: Stack Overflow (Large Local Arrays)**
+```c
+// ❌ RISKY: large array on stack (may overflow small embedded stack)
+void bad_process_image(void) {
+    uint8_t frame[320 * 240];  // 76KB on stack!
+    capture_frame(frame);
+}
+
+// ✅ SAFER: use static or heap for large buffers
+static uint8_t frame_buffer[320 * 240];  // in .bss, not stack
+
+void good_process_image(void) {
+    capture_frame(frame_buffer);
+}
+```
+
 ## 🎯 **Pointers**
 
 ### **What are Pointers?**
@@ -738,6 +869,192 @@ uint32_t* array_ptr = array;
 uint32_t first = *array_ptr;      // array[0]
 uint32_t second = *(array_ptr + 1); // array[1]
 uint32_t third = array_ptr[2];    // array[2]
+```
+
+#### **Practical Embedded Examples**
+
+**Memory-Mapped Register Access**
+```c
+// Direct hardware register manipulation via pointers
+#define GPIO_BASE   0x40020000u
+#define GPIO_MODER  (*(volatile uint32_t*)(GPIO_BASE + 0x00))
+#define GPIO_ODR    (*(volatile uint32_t*)(GPIO_BASE + 0x14))
+#define GPIO_IDR    (*(volatile uint32_t*)(GPIO_BASE + 0x10))
+
+void gpio_set_output(uint8_t pin) {
+    GPIO_MODER &= ~(3u << (pin * 2));   // clear mode bits
+    GPIO_MODER |= (1u << (pin * 2));    // set output mode
+}
+
+void gpio_write(uint8_t pin, uint8_t val) {
+    if (val) GPIO_ODR |= (1u << pin);
+    else     GPIO_ODR &= ~(1u << pin);
+}
+```
+
+**Pointer Arithmetic: Type Matters**
+```c
+/*
+ * Key insight: ptr + 1 advances by sizeof(*ptr) bytes
+ * 
+ * uint8_t*  + 1 = +1 byte
+ * uint16_t* + 1 = +2 bytes
+ * uint32_t* + 1 = +4 bytes
+ */
+void demonstrate_pointer_arithmetic(void) {
+    uint8_t  buf[16];
+    
+    uint8_t*  p8  = buf;
+    uint16_t* p16 = (uint16_t*)buf;
+    uint32_t* p32 = (uint32_t*)buf;
+    
+    // All start at same address
+    // p8  = 0x2000
+    // p16 = 0x2000
+    // p32 = 0x2000
+    
+    p8++;   // p8  = 0x2001 (+1 byte)
+    p16++;  // p16 = 0x2002 (+2 bytes)
+    p32++;  // p32 = 0x2004 (+4 bytes)
+}
+```
+
+**Practical: Parsing a Protocol Packet**
+```c
+/*
+ * Parse: [SYNC:1][LEN:2][CMD:1][PAYLOAD:n][CRC:2]
+ * This is how embedded protocols like UART frames are parsed
+ */
+typedef struct {
+    uint8_t  cmd;
+    uint16_t len;
+    uint8_t* payload;
+    uint16_t crc;
+} packet_t;
+
+bool parse_packet(uint8_t* raw, size_t raw_len, packet_t* pkt) {
+    uint8_t* p = raw;
+    uint8_t* end = raw + raw_len;
+    
+    // Check minimum size
+    if (raw_len < 6) return false;
+    
+    // Parse SYNC
+    if (*p++ != 0xAA) return false;
+    
+    // Parse LEN (little-endian 16-bit)
+    pkt->len = p[0] | (p[1] << 8);
+    p += 2;
+    
+    // Bounds check before accessing payload
+    if (p + pkt->len + 3 > end) return false;
+    
+    // Parse CMD
+    pkt->cmd = *p++;
+    
+    // Payload pointer (no copy, just reference)
+    pkt->payload = p;
+    p += pkt->len;
+    
+    // Parse CRC
+    pkt->crc = p[0] | (p[1] << 8);
+    
+    return true;
+}
+```
+
+**Pointer Comparison and Bounds Checking**
+```c
+/*
+ * Safe buffer iteration with boundary checks
+ * Common pattern for circular buffers and DMA
+ */
+void safe_buffer_copy(uint8_t* dst, const uint8_t* src, 
+                      size_t len, size_t dst_size) {
+    const uint8_t* src_end = src + len;
+    uint8_t* dst_end = dst + dst_size;
+    
+    while (src < src_end && dst < dst_end) {
+        *dst++ = *src++;
+    }
+}
+
+// Ring buffer read with wrap-around
+size_t ring_read(ring_t* r, uint8_t* out, size_t max) {
+    size_t count = 0;
+    uint8_t* end = r->buf + r->size;  // one past last valid
+    
+    while (count < max && r->head != r->tail) {
+        *out++ = *r->tail++;
+        if (r->tail >= end) {
+            r->tail = r->buf;  // wrap to start
+        }
+        count++;
+    }
+    return count;
+}
+```
+
+**Multi-Byte Access Patterns (Endianness-Aware)**
+```c
+/*
+ * Portable multi-byte read/write for protocol buffers
+ * Avoids alignment issues and works regardless of CPU endianness
+ */
+
+// Read 16-bit little-endian from byte buffer
+static inline uint16_t read_le16(const uint8_t* p) {
+    return (uint16_t)p[0] | ((uint16_t)p[1] << 8);
+}
+
+// Read 32-bit big-endian from byte buffer (network order)
+static inline uint32_t read_be32(const uint8_t* p) {
+    return ((uint32_t)p[0] << 24) | ((uint32_t)p[1] << 16) |
+           ((uint32_t)p[2] << 8)  | (uint32_t)p[3];
+}
+
+// Write 16-bit little-endian to byte buffer
+static inline void write_le16(uint8_t* p, uint16_t v) {
+    p[0] = (uint8_t)(v & 0xFF);
+    p[1] = (uint8_t)(v >> 8);
+}
+
+// Usage: build a packet
+void build_response(uint8_t* buf, uint16_t seq, uint32_t value) {
+    buf[0] = 0xAA;                  // sync
+    write_le16(buf + 1, seq);       // sequence number
+    buf[3] = 0x02;                  // command
+    write_le16(buf + 4, (uint16_t)value);  // payload
+}
+```
+
+**Void Pointers and Type Casting**
+```c
+/*
+ * void* is the "generic" pointer - can point to any type
+ * Must cast before dereferencing
+ * Common in callbacks, memory allocators, and HAL APIs
+ */
+
+// Generic compare callback (like qsort)
+typedef int (*compare_fn)(const void*, const void*);
+
+int compare_uint16(const void* a, const void* b) {
+    uint16_t va = *(const uint16_t*)a;
+    uint16_t vb = *(const uint16_t*)b;
+    return (va > vb) - (va < vb);
+}
+
+// Generic memory pool
+void* pool_alloc(pool_t* pool, size_t size) {
+    if (pool->free + size > pool->end) return NULL;
+    void* ptr = pool->free;
+    pool->free += size;
+    return ptr;
+}
+
+// Usage
+sensor_t* s = (sensor_t*)pool_alloc(&pool, sizeof(sensor_t));
 ```
 
 #### **Function Pointers**
