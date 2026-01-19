@@ -379,6 +379,26 @@ Master → [Advanced Hardware](#advanced-hardware) → [Security](#embedded-secu
 
 ---
 
+## 🏢 **Company-Specific Preparation**
+
+*Interview experiences and company-specific preparation guides*
+
+| Company | Guide |
+|---------|-------|
+| **Amazon** | [Amazon Interview Prep](./Interview/Company/Amazon/amazon.md) |
+| **Apple** | [Apple Interview Prep](./Interview/Company/Apple/apple.md) |
+| **Tesla** | [Tesla Interview Prep](./Interview/Company/tesla.md) |
+| **Nvidia** | [Nvidia Interview Prep](./Interview/Company/Nvidia.md) |
+| **Qualcomm** | [Qualcomm Interview Prep](./Interview/Company/qualcomm.md) |
+| **Cisco** | [Cisco Interview Prep](./Interview/Company/Cisco.md) |
+| **Meta/Facebook** | [Meta Topics Prep](./Interview/Company/facebook/topics_prepare.md) |
+| **Zoox** | [Zoox Interview Prep](./Interview/Company/zoox.md) |
+| **Lyft** | [Lyft Interview Prep](./Interview/Company/lyft.md) |
+| **Verkada** | [Verkada Phone Screen](./Interview/Company/Verkada/Phone_screen.md) |
+| **Intuitive** | [Intuitive Project](./Interview/Company/intuitive/README.md) |
+
+---
+
 ## 🏗️ **System Design for Interviews**
 
 ### **System Design Methodology**
@@ -407,26 +427,6 @@ Master → [Advanced Hardware](#advanced-hardware) → [Security](#embedded-secu
 - **[Air Control System](./Interview/SystemDesign/examples/airControlSystem.md)** - Embedded system design example
 - **[Consistent Hashing Implementation](./Interview/SystemDesign/implementation/consistentHashing.md)** - Implementation details
 - **[MemCache Implementation](./Interview/SystemDesign/implementation/memCache.md)** - Cache implementation
-
----
-
-## 🏢 **Company-Specific Preparation**
-
-*Interview experiences and company-specific preparation guides*
-
-| Company | Guide |
-|---------|-------|
-| **Amazon** | [Amazon Interview Prep](./Interview/Company/Amazon/amazon.md) |
-| **Apple** | [Apple Interview Prep](./Interview/Company/Apple/apple.md) |
-| **Tesla** | [Tesla Interview Prep](./Interview/Company/tesla.md) |
-| **Nvidia** | [Nvidia Interview Prep](./Interview/Company/Nvidia.md) |
-| **Qualcomm** | [Qualcomm Interview Prep](./Interview/Company/qualcomm.md) |
-| **Cisco** | [Cisco Interview Prep](./Interview/Company/Cisco.md) |
-| **Meta/Facebook** | [Meta Topics Prep](./Interview/Company/facebook/topics_prepare.md) |
-| **Zoox** | [Zoox Interview Prep](./Interview/Company/zoox.md) |
-| **Lyft** | [Lyft Interview Prep](./Interview/Company/lyft.md) |
-| **Verkada** | [Verkada Phone Screen](./Interview/Company/Verkada/Phone_screen.md) |
-| **Intuitive** | [Intuitive Project](./Interview/Company/intuitive/README.md) |
 
 ---
 
