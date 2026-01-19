@@ -337,6 +337,112 @@ Master → [Advanced Hardware](#advanced-hardware) → [Security](#embedded-secu
 
 ---
 
+## 🎤 **Interview Practice & Resources**
+
+### **Classic Embedded Interview Questions**
+*Battle-tested questions that appear in most embedded interviews*
+
+- **[Common Embedded Interview Questions](./Interview/Concept/Common_embedded_interview.md)** - Preprocessor, loops, volatile, pointers, memory
+- **[Embedded Concept Questions](./Interview/Concept/Concept_questions.md)** - Core embedded concepts Q&A
+- **[General Embedded Interview](./Interview/Concept/embedded_interview_questions.md)** - Comprehensive question bank
+
+#### **Protocol-Specific Questions**
+- **[UART Interview Questions](./Interview/Concept/UART_interview_questions.md)** - UART-specific Q&A
+- **[SPI Interview Questions](./Interview/Concept/SPI_interview_questions.md)** - SPI modes, timing, troubleshooting
+- **[I2C Interview Questions](./Interview/Concept/I2C_interview_questions.md)** - Addressing, arbitration, clock stretching
+- **[CAN Interview Questions](./Interview/Concept/CAN_interview_questions.md)** - CAN frames, error handling, arbitration
+
+### **LeetCode for Embedded Developers**
+*Curated coding problems focusing on C programming without advanced data structures*
+
+- **[LeetCode for Embedded Developer](./Interview/Algorithm/LeetCode_for_Embedded_Developer.md)** - Curated problems with difficulty ratings
+- **[LeetCode for Embedded (Advanced)](./Interview/Algorithm/LeetCode_for_embedded_advanced.md)** - Advanced problems for senior roles
+- **[LeetCode OS Flavor](./Interview/Algorithm/leetcodeOSflavor.md)** - OS-related coding problems
+
+#### **Data Structure Practice**
+- **[Algorithm Preparation Guide](./Interview/Algorithm/algorithm_prepare.md)** - Study approach and patterns
+- **[Array Problems](./Interview/Algorithm/Array.md)** - Array manipulation and techniques
+- **[Linked List Problems](./Interview/Algorithm/linked_list.md)** - Linked list operations
+- **[String Problems](./Interview/Algorithm/string.md)** - String manipulation in C
+- **[Matrix Problems](./Interview/Algorithm/matrix.md)** - 2D array operations
+- **[Data Structures Overview](./Interview/Algorithm/dataStructure.md)** - Core data structures review
+
+### **Behavioral Interview Prep**
+*Soft skills and behavioral questions for the non-technical rounds*
+
+- **[Common Behavioral Questions](./Interview/Behavior/commonBehavior.md)** - STAR method examples
+- **[Brain Teaser Questions](./Interview/BrainTeaser/BranTeaser_questions.md)** - Logic puzzles and estimation
+
+### **Interview Preparation Guides**
+- **[General Interview Preparation](./Interview/Preparation/prepare.md)** - Comprehensive prep checklist
+- **[Onsite Interview Preparation](./Interview/Preparation/onSite_prepare.md)** - Onsite-specific tips
+
+---
+
+## 🏗️ **System Design for Interviews**
+
+### **System Design Methodology**
+*Structured approach to tackle system design questions*
+
+- **[System Design Overview](./Interview/SystemDesign/systemDesign.md)** - 4S and 7-step approaches
+- **[Key Characteristics of Distributed Systems](./Interview/SystemDesign/keyCharacterDistributedSystem.md)** - Scalability, reliability, availability
+
+### **Distributed Systems Concepts**
+- **[CAP Theorem](./Interview/SystemDesign/CAPTheorem.md)** - Consistency, availability, partition tolerance
+- **[Load Balancing](./Interview/SystemDesign/loadBalancing.md)** - Load distribution strategies
+- **[Caching](./Interview/SystemDesign/caching.md)** - Cache strategies and invalidation
+- **[Data Partitioning](./Interview/SystemDesign/dataPartitioning.md)** - Sharding and partitioning
+- **[Consistent Hashing](./Interview/SystemDesign/consistentHashing.md)** - Distributed hash tables
+- **[Proxies](./Interview/SystemDesign/proxies.md)** - Forward and reverse proxies
+- **[Redundancy & Replication](./Interview/SystemDesign/Redundancy&Replication.md)** - Fault tolerance
+- **[Indexes](./Interview/SystemDesign/indexes.md)** - Database indexing
+- **[Long Polling, WebSockets, Server Events](./Interview/SystemDesign/longpollingWebSocketsServerEvents.md)** - Real-time communication
+
+### **Embedded System Design Topics**
+- **[Cross-MCU Communication](./Interview/SystemDesign/embeddedDesignTopics/crossMCUComm.md)** - Multi-processor communication
+- **[Memory Management Design](./Interview/SystemDesign/embeddedDesignTopics/memory_management.md)** - Memory architecture decisions
+
+### **System Design Examples**
+- **[Cache Design](./Interview/SystemDesign/examples/cacheDesign.md)** - Implementing a cache system
+- **[Air Control System](./Interview/SystemDesign/examples/airControlSystem.md)** - Embedded system design example
+- **[Consistent Hashing Implementation](./Interview/SystemDesign/implementation/consistentHashing.md)** - Implementation details
+- **[MemCache Implementation](./Interview/SystemDesign/implementation/memCache.md)** - Cache implementation
+
+---
+
+## 🏢 **Company-Specific Preparation**
+
+*Interview experiences and company-specific preparation guides*
+
+| Company | Guide |
+|---------|-------|
+| **Amazon** | [Amazon Interview Prep](./Interview/Company/Amazon/amazon.md) |
+| **Apple** | [Apple Interview Prep](./Interview/Company/Apple/apple.md) |
+| **Tesla** | [Tesla Interview Prep](./Interview/Company/tesla.md) |
+| **Nvidia** | [Nvidia Interview Prep](./Interview/Company/Nvidia.md) |
+| **Qualcomm** | [Qualcomm Interview Prep](./Interview/Company/qualcomm.md) |
+| **Cisco** | [Cisco Interview Prep](./Interview/Company/Cisco.md) |
+| **Meta/Facebook** | [Meta Topics Prep](./Interview/Company/facebook/topics_prepare.md) |
+| **Zoox** | [Zoox Interview Prep](./Interview/Company/zoox.md) |
+| **Lyft** | [Lyft Interview Prep](./Interview/Company/lyft.md) |
+| **Verkada** | [Verkada Phone Screen](./Interview/Company/Verkada/Phone_screen.md) |
+| **Intuitive** | [Intuitive Project](./Interview/Company/intuitive/README.md) |
+
+---
+
+## 📖 **Additional Resources**
+
+### **Reference Documents**
+*PDFs and guides in the [Interview/Resources](./Interview/Resources/) folder:*
+
+- Coding Interview Tips for Facebook
+- Cracking The Coding Interview - Coding Section
+- Design Interview Types at Facebook
+- SDE-Embedded Prep Document
+- Interview Prep 2020 Guide
+
+---
+
 **🚀 Ready to ace your embedded software interview? Start with the topics most relevant to your target role and experience level!**
 
 *This guide focuses on the most interview-relevant embedded software topics. Each link provides deep technical knowledge essential for embedded software engineering roles.*
