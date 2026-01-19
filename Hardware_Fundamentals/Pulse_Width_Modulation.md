@@ -53,6 +53,11 @@ void pwm_set_duty(uint16_t duty){ /* write CCRx, clamp to ARR */ }
 - Use complementary outputs and dead-time for half-bridges.
 - Filtered PWM (RC) behaves like a DAC; design the filter.
 
+### **Interviewer intent (what they’re probing)**
+- Can you compute PWM frequency/resolution from timer settings?
+- Do you understand trade‑offs: noise vs resolution vs efficiency?
+- Can you explain real actuator constraints (dead‑time, driver limits)?
+
 ---
 
 ## 🔍 Visual Understanding

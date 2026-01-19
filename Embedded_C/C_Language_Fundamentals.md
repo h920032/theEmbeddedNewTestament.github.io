@@ -36,6 +36,11 @@ C is the primary programming language for embedded systems due to its:
 - **Low-level access** - Pointer arithmetic and bit manipulation
 - **Procedural programming** - Function-based code organization
 
+### **Interviewer intent (what they’re probing)**
+- Can you explain why C remains dominant in embedded work?
+- Do you understand trade‑offs: safety vs control vs performance?
+- Can you connect language features to hardware behavior?
+
 ## 🤔 **What is C Programming?**
 
 C is a general-purpose programming language developed in the 1970s by Dennis Ritchie at Bell Labs. It was designed to be a simple, efficient language that provides low-level access to memory while maintaining portability across different computer architectures.

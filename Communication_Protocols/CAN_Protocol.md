@@ -33,6 +33,11 @@ Controller Area Network (CAN) is a robust, real-time communication protocol desi
 - **Error detection** - Built-in error detection and fault confinement
 - **Real-time performance** - Deterministic communication with priority-based access
 
+### **Interviewer intent (what they’re probing)**
+- Can you explain arbitration and why CAN is deterministic?
+- Do you understand error states and fault confinement?
+- Can you reason about bus load and message priority?
+
 ## 🤔 **What is CAN Protocol?**
 
 CAN protocol is a serial communication standard that enables multiple electronic control units (ECUs) to communicate with each other without a central computer. It uses a message-based communication approach where data is transmitted in frames with unique identifiers, allowing for efficient, reliable, and real-time communication in distributed systems.

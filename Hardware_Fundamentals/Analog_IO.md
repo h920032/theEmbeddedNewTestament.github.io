@@ -18,6 +18,11 @@
 
 Analog I/O is essential for interfacing with real-world signals like temperature sensors, pressure sensors, audio signals, and control systems. Understanding ADC (Analog-to-Digital Converter) and DAC (Digital-to-Analog Converter) is crucial for embedded systems.
 
+### **Interviewer intent (what they’re probing)**
+- Can you explain sampling, quantization, and aliasing clearly?
+- Do you understand Vref, input impedance, and scaling?
+- Can you select sampling rate and resolution based on signal needs?
+
 ### **🔍 Visual Understanding**
 
 #### **Analog vs. Digital Signal Representation**

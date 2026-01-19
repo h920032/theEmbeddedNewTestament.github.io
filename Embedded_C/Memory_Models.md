@@ -40,6 +40,11 @@ Know which data ends up in Flash vs RAM and what the startup code must zero or c
 - Avoid large automatic arrays on the stack; use static storage or pools.
 - For freestanding targets, keep startup work small to reduce boot latency.
 
+### Interviewer intent (what they’re probing)
+- Do you understand `.text/.rodata/.data/.bss` trade‑offs?
+- Can you read a map file and reason about footprint?
+- Can you explain startup costs and placement decisions?
+
 ---
 
 ## 🧪 Guided Labs

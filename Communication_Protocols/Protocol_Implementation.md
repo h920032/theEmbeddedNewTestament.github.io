@@ -33,6 +33,11 @@ Protocol implementation is the process of designing and implementing custom comm
 - **State management** - Protocol states, transitions, and error handling
 - **Performance optimization** - Protocol efficiency, bandwidth utilization, and latency
 
+### **Interviewer intent (what they’re probing)**
+- Can you design a protocol that is unambiguous and testable?
+- Do you understand framing, resync, and error recovery?
+- Can you build a simple state machine and defend its edge cases?
+
 ---
 
 ## 🧠 **Concept First**

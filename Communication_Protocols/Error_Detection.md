@@ -32,6 +32,11 @@ Error detection and handling are critical components of reliable embedded commun
 - **System reliability** - Maintaining system operation under error conditions
 - **Performance impact** - Balancing error detection with system performance
 
+### **Interviewer intent (what they’re probing)**
+- Can you choose an error method for a given error rate?
+- Do you understand detection vs correction trade‑offs?
+- Can you explain how errors propagate in protocols?
+
 ---
 
 ## 🧠 **Concept First**

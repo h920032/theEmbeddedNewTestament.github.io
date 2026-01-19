@@ -2,6 +2,11 @@
 
 Effective protocol analysis accelerates bring-up, reveals timing bugs, and derisks field failures. This guide covers instrumentation, capture strategy, timing analysis, and a practical checklist for UART, SPI, I2C, CAN, and Ethernet-based protocols.
 
+### **Interviewer intent (what they’re probing)**
+- Can you choose the right tool and sampling strategy?
+- Do you know how to isolate timing vs logic errors?
+- Can you explain a systematic debug workflow?
+
 ---
 
 ## 🧠 **Concept First**

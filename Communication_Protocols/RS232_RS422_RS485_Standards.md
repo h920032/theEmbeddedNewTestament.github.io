@@ -35,6 +35,11 @@ RS232, RS422, and RS485 are serial communication standards that define electrica
 - **Distance limitations** - Cable length and speed trade-offs
 - **Driver/receiver compatibility** - Hardware interface requirements
 
+### **Interviewer intent (what they’re probing)**
+- Can you choose the right standard for distance/noise/topology?
+- Do you understand single‑ended vs differential signaling?
+- Can you reason about termination and bus loading?
+
 ---
 
 ## 🧠 **Concept First**

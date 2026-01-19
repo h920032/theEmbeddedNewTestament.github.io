@@ -33,6 +33,11 @@ Interrupts and exceptions are fundamental mechanisms that allow embedded systems
 - **Nesting**: Higher priority interrupts can preempt lower priority ones
 - **Context Saving**: CPU automatically saves/restores registers during ISR execution
 
+### **Interviewer intent (what they’re probing)**
+- Can you design ISRs that are short, safe, and deterministic?
+- Do you understand latency, priority, and nesting trade‑offs?
+- Can you explain common fault/exception root causes?
+
 ---
 
 ## 🔍 **Visual Understanding**

@@ -33,6 +33,11 @@ Serial communication is a fundamental method of data transmission where informat
 - **Data framing** - Start bits, data bits, parity, stop bits
 - **Error detection** - Parity checking, checksums, CRC
 
+### **Interviewer intent (what they’re probing)**
+- Can you compare async vs sync and their trade‑offs?
+- Do you understand framing and error detection basics?
+- Can you explain when serial beats parallel in embedded?
+
 ---
 
 ## 🧠 **Concept First**

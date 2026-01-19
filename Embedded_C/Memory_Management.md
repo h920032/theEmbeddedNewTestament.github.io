@@ -22,6 +22,11 @@ Memory management is critical in embedded systems where resources are limited an
 - **Resource constraints** - Working within limited RAM
 - **Real-time requirements** - Avoiding dynamic allocation in critical paths
 
+### **Interviewer intent (what they’re probing)**
+- Can you justify stack vs heap vs static choices?
+- Do you understand determinism, fragmentation, and failure modes?
+- Can you explain memory trade‑offs in real‑time systems?
+
 ## 🔢 Memory Types
 
 ### Static Memory
